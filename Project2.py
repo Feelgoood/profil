@@ -3,21 +3,17 @@ import nltk
 from nltk.corpus import stopwords
 import csv
 import re
-import json
-d = 'C:\\test programm\\Тексты'
-name_list = os.listdir(d)
-#data = {}
-# poets = {'Пушкин': {'sent':10, 'words':100, 'soyuz':300},
-#         'Лермонов':{'sent':16, 'words':190, 'soyuz':300}}
-
-import os
-import re
 import pymorphy2
 import nltk
 from string import punctuation
 from nltk.corpus import stopwords
 from pymorphy2 import MorphAnalyzer
 
+d = 'C:\\test programm\\Тексты'
+name_list = os.listdir(d)
+#data = {}
+# poets = {'Пушкин': {'sent':10, 'words':100, 'soyuz':300},
+#         'Лермонов':{'sent':16, 'words':190, 'soyuz':300}}
 authors_list = os.listdir(d)
 print(authors_list)
 
@@ -46,7 +42,7 @@ def normalize(text):
 #
 for i in authors_list:
     print(i)
-    a= os.listdir(c+'/'+i)
+    a= os.listdir(d+'/'+i)
     print(a)
     a= str(a)
     a=a.replace("'",'')
