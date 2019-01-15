@@ -15,7 +15,7 @@ name_list = os.listdir(d)
 # poets = {'Пушкин': {'sent':10, 'words':100, 'soyuz':300},
 #         'Лермонов':{'sent':16, 'words':190, 'soyuz':300}}
 authors_list = os.listdir(d)
-print(authors_list)
+#print(authors_list)
 
 #date_list = re.findall(r'\d{2}.\d{2}.\d{4}', dir_list)
 
@@ -81,7 +81,7 @@ def preprocess_sents(document):
     cnt = 0
     for sent in sentences:
         cnt += 1
-        print('[{}]{}'.format(cnt, sent))
+       #print('[{}]{}'.format(cnt, sent))
     #print(sentences)
     return words/len(sentences)
 
@@ -163,25 +163,24 @@ def count_conj(name_list):
                 conj_dict[i] = conj
     return conj_dict
 
+
+
+
 def zip_dictionaries(first_dict, second_dict, third_dict):
     dict_={}
     for key, value in first_dict.items():
         dict_[key] = {'sent': value, 'words':second_dict[key], 'conj': third_dict[key]}
-
-# def zip_dictionaries(first_dict, second_dict):
-#     dict_={}
-#     for key, value in first_dict.items():
-#         dict_[key] = {'sent': value, 'words':second_dict[key]}
-
     return dict_
+
+
 result=count_sents(name_list)
 result_w=count_words(name_list)
 result_c=count_conj(name_list)
-#print(result)
-# k=1
-print(zip_dictionaries(result, result_w, result_c))
-data=zip_dictionaries(result, result_w, result_c)
 
+
+data=zip_dictionaries(result, result_w, result_c)
+zip_dictionaries(result, result_w, result_c)
+print(zip_dictionaries(result, result_w, result_c))
 def save_file_(csvfile, content):
     with open(csvfile, 'w') as savefile:
         for i in content.keys():
@@ -191,3 +190,5 @@ def save_file_(csvfile, content):
             savefile.write('\n')
 
 save_file_('result.csv', data)
+
+
